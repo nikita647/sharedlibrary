@@ -8,4 +8,6 @@ def call() {
                         -Dsonar.sources=. \
                         -Dsonar.token=${SONARQUBE_TOKEN}
                     """
+                }
+            }
     }
