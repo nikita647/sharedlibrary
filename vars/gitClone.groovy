@@ -1,4 +1,4 @@
-def call(String repoUrl, String branch = 'main', String credentialsId) {
+def call(String repoUrl, String branch = 'main', String credentialsId='') {
     echo "Cloning repository from ${repoUrl}, branch: ${branch}"
     
     if (credentialsId) {
