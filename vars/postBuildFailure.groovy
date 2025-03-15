@@ -10,8 +10,6 @@ Job Details:
 - Build Number: ${env.BUILD_NUMBER}  
 - Build URL: ${env.BUILD_URL}  
 
-Please review the attached logs and reports for more details.
-
 Regards,  
 Jenkins CI
 """, 
