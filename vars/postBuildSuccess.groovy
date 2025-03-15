@@ -11,8 +11,6 @@ Build Details:
 - Build Number: ${env.BUILD_NUMBER}  
 - Build URL: ${env.BUILD_URL}  
 
-You can find the dependency check report attached.
-
 Best regards,  
 Jenkins CI
 """, 
