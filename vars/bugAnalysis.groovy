@@ -1,4 +1,4 @@
-def call() {
+def call(string projectKey_name) {
                 withSonarQubeEnv('sonar') {
                 withCredentials([string(credentialsId: 'sonartoken', variable: 'SONARQUBE_TOKEN')]) {
                 sh '''
