@@ -1,5 +1,4 @@
-def call() {
-sh   'npm install'
+def call(String projectKey_name ) {
                 withSonarQubeEnv('sonar') {
                 withCredentials([string(credentialsId: 'sonartoken', variable: 'SONARQUBE_TOKEN')]) {
                 sh '''
