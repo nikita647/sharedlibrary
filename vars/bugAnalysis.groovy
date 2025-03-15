@@ -1,4 +1,4 @@
-def call(String projectKey_name ) {
+def call() {
                    echo "Using SonarQube Project Key: ${projectKey_name}"
             withSonarQubeEnv('sonar') {
                 withCredentials([string(credentialsId: 'sonartoken', variable: 'SONARQUBE_TOKEN')]) {
