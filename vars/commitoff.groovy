@@ -10,7 +10,7 @@ def call() {
                     else {
                         // Map of usernames to their respective emails
                         def usernameEmailMap = [
-                            'jnikita647': 'jnikita647@gmail.com '
+                            'nikita647': 'jnikita647@gmail.com '
                
                         ]
 
