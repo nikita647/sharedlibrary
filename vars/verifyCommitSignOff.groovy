@@ -1,13 +1,16 @@
 def call() {
-    // Ensure the config is applied globally
+    // Disable GPG signing globally
     sh 'git config --global commit.gpgsign false'
-    // Confirm the change took effect
+    
+    // Confirm the setting
     sh 'git config --get commit.gpgsign'
-    // Identify unsigned commits
+    
+    // Identify unsigned commits (ignore GPG signature messages)
     def unsignedCommits = sh(script: '''
-        git log --pretty=format:"%h - %an: %s" --show-signature | grep -i -v "signed-off-by" || true
+        git log --pretty=format:"%h - %an: %s" | grep -v "Signed-off-by" || true
     ''', returnStdout: true).trim()
-    // Fail the build if unsigned commits are found
+    
+    // Fail if unsigned commits are found
     if (unsignedCommits) {
         error "The following commits are missing a sign-off:\n${unsignedCommits}"
     }
