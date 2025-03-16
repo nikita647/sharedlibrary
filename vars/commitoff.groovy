@@ -5,7 +5,9 @@ def call() {
                     // Check if commit sign-off is present
                     if (gitCommitMsg.contains('Signed-off-by:')) {
                         echo "Last commit by ${gitCommit} has a sign-off."
-                    } else {
+                    } 
+                    
+                    else {
                         // Map of usernames to their respective emails
                         def usernameEmailMap = [
                             'jnikita647': 'jnikita647@gmail.com '
@@ -21,10 +23,11 @@ def call() {
                                 git commit --amend --signoff --author='${gitCommit} <${email}>' -m '${gitCommitMsg} Signed-off-by: ${email}'
                             """
                             echo "Commit message updated with sign-off by ${gitCommit}."
-                        } else {
+                        }
+                        else {
                             error "Unable to find email for ${gitCommit}."
                         }
                     }
-                }
+                
 
 }
