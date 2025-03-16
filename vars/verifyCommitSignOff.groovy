@@ -1,9 +1,8 @@
 def call() {
-       def gitCommitMsg = sh(script: 'git log -1 --pretty=%B', returnStdout: true).trim()
-    
-      if (gitCommitMsg.contains('Signed-off-by:')) {
-                        echo "Last commit by ${gitCommit} has a sign-off."
-    } else {
-        echo "All commits have been signed off."
-    }
+      def unsignedCommits = sh(script: '''
+                        git log --pretty=format:"%h - %an: %s" --show-signature | grep -i -v "signed-off-by"
+                    ''', returnStdout: true).trim()
+
+                    if (unsignedCommits) {
+                        error "The following commits are missing a sign-off:\n${unsignedCommits}"
 }
