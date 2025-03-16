@@ -1,4 +1,5 @@
 def call() {
+    sh  'git config commit.gpgsign false'
       def unsignedCommits = sh(script: '''
                         git log --pretty=format:"%h - %an: %s" --show-signature | grep -i -v "signed-off-by"
                     ''', returnStdout: true).trim()
