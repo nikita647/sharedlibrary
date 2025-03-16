@@ -5,4 +5,5 @@ def call() {
 
                     if (unsignedCommits) {
                         error "The following commits are missing a sign-off:\n${unsignedCommits}"
+                    }
 }
