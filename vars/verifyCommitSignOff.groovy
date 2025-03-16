@@ -1,4 +1,4 @@
-def call () {
+def call() {
 def signoff_status = sh(script: "git log -1 --format=%B | grep -iq 'Signed[- ]off[- ]by:'", returnStatus: true)
                     if (signoff_status != 0) {
                         echo "Commit signoff verification failed. Attempting to amend the commit to include sign-off."
