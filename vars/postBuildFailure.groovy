@@ -3,7 +3,7 @@ def call(String emailRecipient, String slackChannel) {
     
     emailext body: """Hello,
 
-The Jenkins pipeline ${env.JOB_NAME} has failed on Build #${env.BUILD_NUMBER}.
+     The Jenkins build has failed due to missing commit sign-offs.
 
 Job Details:
 - Job Name: ${env.JOB_NAME}  
